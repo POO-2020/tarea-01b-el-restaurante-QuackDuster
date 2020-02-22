@@ -2,6 +2,7 @@ import Precio from "./precio.js"
 import Fecha from "./fecha.js"
 import Tiempo from "./tiempo.js"
 import Direccion from "./direccion.js"
+import Cliente from "./cliente.js"
 export default class Main {
 
     constructor(){
@@ -46,6 +47,14 @@ export default class Main {
         console.log(direccion.getFormatoExtendido())
     }
 
+    pruebaCliente(){
+        let nombre = "Alberto Esparza Gomez Rodriguez"
+        let direccion = new Direccion("Laguna del Calabozo","442","", "Villas Bugambilia", "28956", "Villa de Alvarez", "Colima")
+        let telefono = "312245567"
+        let cliente = new Cliente(nombre,direccion,telefono)
+        console.log("----------Cliente---------")
+        console.log(cliente.getPerfil())
+    }
 }
 
 let tester = new Main()
@@ -53,3 +62,4 @@ tester.pruebaTiempo();
 tester.pruebaFecha();
 tester.pruebaPrecio();
 tester.pruebaDireccion();
+tester.pruebaCliente();

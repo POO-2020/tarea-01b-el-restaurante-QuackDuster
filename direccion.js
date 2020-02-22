@@ -1,6 +1,6 @@
 export default class Direccion {
 
-    constructor(calle,numExt,numInt,colonia,CP,ciudad,municipio){
+    constructor(calle,numExt,numInt,colonia,CP,municipio,ciudad){
         this.calle = calle;
         this.numExt = numExt;
         this.numInt = numInt;
