@@ -4,6 +4,7 @@ import Tiempo from "./tiempo.js"
 import Direccion from "./direccion.js"
 import Cliente from "./cliente.js"
 import Producto from "./producto.js"
+import ElementoPedido from "./elementopedido.js"
 export default class Main {
 
     constructor(){
@@ -64,6 +65,14 @@ export default class Main {
         console.log("--------Producto---------")
         console.log(producto.getDescripcion())
     }
+
+    pruebaElementoPedido(){
+        let cantidad = 2
+        let producto = new Producto("Pasta con allioli", new Precio(130*cantidad))
+        let elemento = new ElementoPedido(cantidad,producto)
+        console.log("--------Elemento Pedido--------")
+        console.log(elemento.getDescripcionB())
+    }
 }
 
 let tester = new Main()
@@ -73,3 +82,4 @@ tester.pruebaPrecio();
 tester.pruebaDireccion();
 tester.pruebaCliente();
 tester.pruebaProducto();
+tester.pruebaElementoPedido();
