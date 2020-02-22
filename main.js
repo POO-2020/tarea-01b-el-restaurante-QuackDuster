@@ -1,3 +1,4 @@
+import Precio from "./precio.js"
 import Fecha from "./fecha.js"
 import Tiempo from "./tiempo.js"
 export default class Main {
@@ -24,9 +25,15 @@ export default class Main {
         console.log(fecha.getDiaFecha())
     }
 
-    
+    pruebaPrecio(){
+        let precio = new Precio(43200.54)
+        console.log("----------Precio----------")
+        console.log(precio.getPrecio())
+    }
+
 }
 
 let tester = new Main()
 tester.pruebaTiempo();
 tester.pruebaFecha();
+tester.pruebaPrecio();
