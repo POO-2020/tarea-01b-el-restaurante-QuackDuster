@@ -3,6 +3,7 @@ import Fecha from "./fecha.js"
 import Tiempo from "./tiempo.js"
 import Direccion from "./direccion.js"
 import Cliente from "./cliente.js"
+import Producto from "./producto.js"
 export default class Main {
 
     constructor(){
@@ -55,6 +56,14 @@ export default class Main {
         console.log("----------Cliente---------")
         console.log(cliente.getPerfil())
     }
+
+    pruebaProducto(){
+        let nombre = "Risotto con champiñones"
+        let precio = new Precio(150)
+        let producto = new Producto(nombre,precio)
+        console.log("--------Producto---------")
+        console.log(producto.getDescripcion())
+    }
 }
 
 let tester = new Main()
@@ -63,3 +72,4 @@ tester.pruebaFecha();
 tester.pruebaPrecio();
 tester.pruebaDireccion();
 tester.pruebaCliente();
+tester.pruebaProducto();

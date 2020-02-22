@@ -1,10 +1,10 @@
 export default class Precio {
     
     constructor(formato){
-    this.formato = formato;
+    this.formato = parseFloat(formato).toFixed(2);
     }
 
     getPrecio(){
-        return ("$" + new Intl.NumberFormat("en-US").format(this.formato))
+        return ("$" + this.formato)
     }
 }
