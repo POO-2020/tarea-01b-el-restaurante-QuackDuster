@@ -5,6 +5,7 @@ import Direccion from "./direccion.js"
 import Cliente from "./cliente.js"
 import Producto from "./producto.js"
 import ElementoPedido from "./elementopedido.js"
+import Pedido from "./pedido.js"
 export default class Main {
 
     constructor(){
@@ -73,6 +74,18 @@ export default class Main {
         console.log("--------Elemento Pedido--------")
         console.log(elemento.getDescripcionB())
     }
+    
+    pruebaPedido(){
+        let cantidad = 2
+        let elemento1 = new ElementoPedido(new Producto("Hamburguesa Vegetariana", new Precio(110*cantidad)))
+        let elemento2 = new ElementoPedido(new Producto("Filete Mignon", new Precio(200*cantidad)))
+        let pedido = new Pedido(new Fecha(1,5,2020),new Tiempo(1,22,"pm"),new Cliente("Ramon Castro Lopez",new Direccion ("Miguel Hidalgo","222","","Vista Hermosa","298345","Colima","Colima"), "3124456446"))
+        console.log("-------Pedido-------")
+        console.log(pedido.agregarElemento(elemento1))
+        console.log(pedido.agregarElemento(elemento2))
+        console.log(pedido.getResumen())
+        console.log(pedido.listarElementos()) 
+    }
 }
 
 let tester = new Main()
@@ -83,3 +96,4 @@ tester.pruebaDireccion();
 tester.pruebaCliente();
 tester.pruebaProducto();
 tester.pruebaElementoPedido();
+tester.pruebaPedido();
