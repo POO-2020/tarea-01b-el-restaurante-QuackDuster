@@ -6,10 +6,11 @@ import Cliente from "./cliente.js"
 import Producto from "./producto.js"
 import ElementoPedido from "./elementopedido.js"
 import Pedido from "./pedido.js"
+import Restaurante from "./restaurante.js"
 export default class Main {
 
     constructor(){
-
+        
     }
 
     pruebaTiempo(){
@@ -86,9 +87,26 @@ export default class Main {
         pedido.agregarElemento(this.elemento2)
         console.log("Hay una cantidad de " + pedido.getNumeroElementos() + " productos distintos")
         console.log("Hay un total de " + pedido.getNumeroProductos()+ " productos") 
-        console.log(pedido.listarElementos())
+        pedido.listarElementos()
         console.log(pedido.getResumen())
         console.log("El costo total es de: " + pedido.getCostoTotal())
+    }
+
+    pruebaRestaurante(){
+        let cantidad1 = 2
+        let cantidad2 = 4
+        this.producto1 = new ElementoPedido(cantidad1,new Producto("Lasagna", new Precio(115)))  
+        this.producto2 = new ElementoPedido(cantidad2,new Producto("Pizza Napoletana", new Precio(125)))
+        let pedido1 = new Pedido(new Fecha(1,3,2020),new Tiempo(5,32,"pm"),new Cliente("Alfredo Gomez Tuercas"), new Direccion("Hacienda Venustiano","427","","Calaboide","294578","Guadalajara", "Jalisco"), "312231321")
+        let restaurante = new Restaurante("Ristorante L'eterna cima", "312454467", new Direccion("Lapiz Lazuli","567","","Calabozo","294578","Guadalajara", "Jalisco"))
+        restaurante.registrarProducto(this.producto1)
+        restaurante.registrarProducto(this.producto2)
+        restaurante.registrarPedido(pedido1)
+        console.log('------Restaurante------')
+        restaurante.listarProductos()
+        restaurante.listarPedidos()
+        
+        
     }
 }
 
@@ -101,3 +119,4 @@ tester.pruebaCliente();
 tester.pruebaProducto();
 tester.pruebaElementoPedido();
 tester.pruebaPedido();
+tester.pruebaRestaurante();
