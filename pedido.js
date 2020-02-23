@@ -18,32 +18,34 @@ export default class Pedido{
 
     getNumeroProductos(){
         var productoNum = 0;
-        this.elementosPedidos.forEach(elementos =>{
-            productoNum += elementos.cantidad
+        this.elementosPedidos.forEach(elemento =>{
+            productoNum += elemento.cantidad 
         })
         return productoNum;
     }
 
     getCostoTotal(){
         var costo = 0;
-        this.elementosPedidos.forEach(elemento => {
-            costo += elemento.cantidad * elemento.producto.nombreP
+        this.elementosPedidos.forEach(elemento1 => {
+            costo += elemento1.cantidad * elemento1.producto.precio.formato
         })
-        return new Precio(costo).getPrecio()
+        return `${new Precio(costo).getPrecio()}`
     }
 
-    agregarElemento(elemento){
-        return `${this.elementosPedidos.push(elemento)}`
+    agregarElemento(elemento1){
+        return `${this.elementosPedidos.push(elemento1)}`
     }
-
+            
     listarElementos(){
+        console.log("Listado de Platillos")
         this.elementosPedidos.forEach(elemento =>{
-            console.log(elemento.getDescripcionB(), "\n")
+            console.log(elemento.getDescripcionB())
+            
         })
     }
 
     getResumen(){
-        return `${this.fecha.getFecha()} ${this.hora.getFormato12()} \n - ${this.getNumeroElementos()} elementos con ${this.getNumeroProductos()} productos- \ntotal: ${this.getCostoTotal()}`
+        return `${this.fecha.getFecha()} ${this.hora.getFormato12()} \n- ${this.getNumeroElementos()} elementos con ${this.getNumeroProductos()} productos.`
     }
 
 }

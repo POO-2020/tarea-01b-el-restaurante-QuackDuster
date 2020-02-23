@@ -69,22 +69,26 @@ export default class Main {
 
     pruebaElementoPedido(){
         let cantidad = 2
-        let producto = new Producto("Pasta con allioli", new Precio(130*cantidad))
+        let producto = new Producto("Pasta con allioli", new Precio(130))
         let elemento = new ElementoPedido(cantidad,producto)
         console.log("--------Elemento Pedido--------")
         console.log(elemento.getDescripcionB())
     }
     
     pruebaPedido(){
-        let cantidad = 2
-        let elemento1 = new ElementoPedido(new Producto("Hamburguesa Vegetariana", new Precio(110*cantidad)))
-        let elemento2 = new ElementoPedido(new Producto("Filete Mignon", new Precio(200*cantidad)))
-        let pedido = new Pedido(new Fecha(1,5,2020),new Tiempo(1,22,"pm"),new Cliente("Ramon Castro Lopez",new Direccion ("Miguel Hidalgo","222","","Vista Hermosa","298345","Colima","Colima"), "3124456446"))
+        let cantidad1 = 1
+        let cantidad2 = 3
+        this.elemento1 = new ElementoPedido(cantidad1,new Producto("Hamburguesa Vegetariana", new Precio(110)))
+        this.elemento2 = new ElementoPedido(cantidad2,new Producto("Filete Mignon", new Precio(200)))
+        let pedido = new Pedido(new Fecha(1,5,2020),new Tiempo(1,22,"pm"),new Cliente("Ramon Castro Lopez"),new Direccion ("Miguel Hidalgo","222","","Vista Hermosa","298345","Colima","Colima"), "3124456446")
         console.log("-------Pedido-------")
-        console.log(pedido.agregarElemento(elemento1))
-        console.log(pedido.agregarElemento(elemento2))
+        pedido.agregarElemento(this.elemento1)
+        pedido.agregarElemento(this.elemento2)
+        console.log("Hay una cantidad de " + pedido.getNumeroElementos() + " productos distintos")
+        console.log("Hay un total de " + pedido.getNumeroProductos()+ " productos") 
+        console.log(pedido.listarElementos())
         console.log(pedido.getResumen())
-        console.log(pedido.listarElementos()) 
+        console.log("El costo total es de: " + pedido.getCostoTotal())
     }
 }
 

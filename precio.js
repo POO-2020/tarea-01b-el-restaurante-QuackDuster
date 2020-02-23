@@ -5,6 +5,6 @@ export default class Precio {
     }
 
     getPrecio(){
-        return ("$" + this.formato)
+        return `$${this.formato}`
     }
 }
