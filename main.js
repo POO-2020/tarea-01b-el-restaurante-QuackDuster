@@ -95,12 +95,14 @@ export default class Main {
     pruebaRestaurante(){
         let cantidad1 = 2
         let cantidad2 = 4
-        this.producto1 = new ElementoPedido(cantidad1,new Producto("Lasagna", new Precio(115)))  
-        this.producto2 = new ElementoPedido(cantidad2,new Producto("Pizza Napoletana", new Precio(125)))
+        this.producto1 = new ElementoPedido(cantidad1,new Producto("Hamburguesa Angus", new Precio(130))) 
+        this.producto2 = new ElementoPedido(cantidad2, new Producto("Pizza Napoletana", new Precio(120)))
         let pedido1 = new Pedido(new Fecha(1,3,2020),new Tiempo(5,32,"pm"),new Cliente("Alfredo Gomez Tuercas"), new Direccion("Hacienda Venustiano","427","","Calaboide","294578","Guadalajara", "Jalisco"), "312231321")
         let restaurante = new Restaurante("Ristorante L'eterna cima", "312454467", new Direccion("Lapiz Lazuli","567","","Calabozo","294578","Guadalajara", "Jalisco"))
         restaurante.registrarProducto(this.producto1)
         restaurante.registrarProducto(this.producto2)
+        pedido1.agregarElemento(this.producto1)
+        pedido1.agregarElemento(this.producto2)
         restaurante.registrarPedido(pedido1)
         console.log('------Restaurante------')
         restaurante.listarProductos()
